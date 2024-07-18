@@ -15,10 +15,13 @@ Evaluación técnica de los elementos pertenecientes de la página DEMO QA.
 Evaluar los conocimientos y pericia del analista de calidad de software sobre la automatización de pruebas.
 ## Características
 
-- WebElements
-- Forms
-- Alerts, Frame & Windows
+- Pruebas de aceptación en lenguaje Gherkin.
+- Integración con Maven para la gestión de dependencias y ejecución de pruebas.
+- Pruebas para funcionalidades de elementos text field, radio button y forms.
 
+## Ejemplos de Casos de Uso
+- Para verificar el ingreso de los campos textField válidos.
+- Para comprobar el comportamiento de los radioButton
 ## Instalación
 
 Instrucciones para configurar el proyecto en un entorno local.

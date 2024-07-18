@@ -27,6 +27,7 @@ public class testTextBox {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         driver.get("https://demoqa.com/text-box");
+        driver.manage().window().maximize();
         basePage = new basePage(driver);
     }
 
@@ -79,7 +80,6 @@ public class testTextBox {
         System.out.println("Actual Permanent: " + permanentAddressActual + ", Expected Permanent: " + permanentAddress);
 
     }
-
 
     @AfterMethod
     public void tearDown() {
