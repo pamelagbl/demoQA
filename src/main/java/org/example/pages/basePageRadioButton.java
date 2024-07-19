@@ -1,7 +1,9 @@
 package org.example.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -29,11 +31,22 @@ public class basePageRadioButton {
     }
 
     public void yesRadio() {
-        yesButton.click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", yesButton);
+
+        Actions actions = new Actions(driver);
+        actions.moveToElement(yesButton).click().perform();
+
+        //yesButton.click();
     }
 
     public void impressiveRadio() {
-        impressiveButton.click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", impressiveButton);
+
+        Actions actions = new Actions(driver);
+        actions.moveToElement(impressiveButton).click().perform();
+        //impressiveButton.click();
     }
 
     public String getMessage() {

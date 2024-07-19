@@ -1,6 +1,6 @@
-Feature: Verificar la funcionalidad de los Web Tables
+Feature: Verify the functionality of Web Tables - Add
 
-  Scenario: Añadir una nueva entrada en la tabla
+  Scenario: Add a new entry to the table
     Given I open the browser and navigate to "https://demoqa.com/webtables"
     When I click on the "Add" button
     And I fill in the form with the following details:
@@ -14,9 +14,9 @@ Feature: Verificar la funcionalidad de los Web Tables
     And I click on the "Submit" button
     Then the new entry should be displayed in the table with the correct details
 
-Feature: Verificar la funcionalidad de los Web Tables
+Feature: Verify the functionality of Web Tables - Button Edit
 
-  Scenario: Editar una nueva entrada en la tabla
+  Scenario: Edit a new entry in the table
     Given I open the browser and navigate to "https://demoqa.com/webtables"
     When I click on the "edit" button
     And I fill in the form with the following details:
@@ -30,9 +30,9 @@ Feature: Verificar la funcionalidad de los Web Tables
     And I click on the "Submit" button
     Then the new entry should be displayed in the table with the correct details
 
-Feature: Verificar la funcionalidad de los Web Tables
+Feature: Verify the functionality of Web Tables - Button Delete
 
-  Scenario: Eliminar una nueva entrada en la tabla
+  Scenario: Delete a new entry in the table
     Given I open the browser and navigate to "https://demoqa.com/webtables"
     When I click on the "Delete" button
     Then the new entry should be displayed in the table with the correct details

@@ -1,4 +1,4 @@
-Feature: Verificar la funcionalidad de los Text Box
+Feature: Verify the functionality of the Text Boxes
 
   Scenario: Rellenar y enviar el formulario de Text Box con datos válidos
     Given I open the browser and navigate to "https://demoqa.com/text-box"

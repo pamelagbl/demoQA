@@ -1,4 +1,4 @@
-Feature: Verificar la funcionalidad de los Radio Button - Yes
+Feature: Verify the functionality of the Radio Button - Yes
 
   Scenario: Seleccionar radio button Yes
     Given I open the browser and navigate to "https://demoqa.com/radio-button"
@@ -6,7 +6,7 @@ Feature: Verificar la funcionalidad de los Radio Button - Yes
     Then the selected radio button should be "Yes"
     And I should see a message saying "You have selected: Yes"
 
-Feature: Verificar la funcionalidad de los Radio Button - Impressive
+Feature: Verify the functionality of the Radio Button - Impressive
 
   Scenario: Seleccionar radio button Impressive
     Given I open the browser and navigate to "https://demoqa.com/radio-button"

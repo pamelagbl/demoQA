@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 
 public class basePageWebTables {
     WebDriver driver;
@@ -37,8 +39,17 @@ public class basePageWebTables {
     @FindBy(id = "department")
     WebElement departmentField;
 
-    @FindBy(xpath ="//*[@id='submit']")
+    @FindBy(xpath = "//*[@id='submit']")
     WebElement buttonSubmit;
+
+    @FindBy(css = ".rt-tbody .rt-tr-group")
+    List<WebElement> rows;
+
+    @FindBy(id = "delete-record-1")
+    WebElement deleteButton;
+
+    @FindBy(id = "edit-record-1")
+    WebElement editButton;
 
 
     public basePageWebTables(WebDriver driver) {
@@ -78,17 +89,75 @@ public class basePageWebTables {
     public void clickButtonAdd() {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", addButton);
-        addButton.click();
+        js.executeScript("arguments[0].scrollIntoView(true);", addButton);
 
+        Actions actions = new Actions(driver);
+        actions.moveToElement(addButton).click().perform();
+
+        // Esperar a que el modal esté visible
+        WebElement modal = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("modal-content")));
+    }
+
+    public boolean newRecord(String firstN, String lastN) {
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(".rt-tbody .rt-tr-group")));
+
+        return rows.stream().anyMatch(row -> row.getText().contains(firstN) && row.getText().contains(lastN));
     }
 
     public void clickButtonSubmit() {
         buttonSubmit.click();
     }
-    /*public String getMessage() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.visibilityOf(successMessage));
-        return successMessage.getText();
-    }*/
+
+    public void setDeleteButton() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", deleteButton);
+
+        Actions actions = new Actions(driver);
+        actions.moveToElement(deleteButton).click().perform();
+    }
+
+    public boolean validateDeleteRecord(String firstN, String lastN) {
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(".rt-tbody .rt-tr-group")));
+        return rows.stream().anyMatch(row -> row.getText().contains(firstN) && row.getText().contains(lastN));
+    }
+
+    public void setEditButton() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", editButton);
+
+        Actions actions = new Actions(driver);
+        actions.moveToElement(editButton).click().perform();
+    }
+
+    public void enterEditFirstName(String firstname) {
+        firstNameField.clear();
+        firstNameField.sendKeys(firstname);
+    }
+
+    public void enterEditLastName(String lastname) {
+        lastNameField.clear();
+        lastNameField.sendKeys(lastname);
+    }
+
+    public void enterEditAge(String age) {
+        ageField.clear();
+        ageField.sendKeys(age);
+    }
+
+    public void enterEditEmail(String email) {
+        userEmailField.clear();
+        userEmailField.sendKeys(email);
+    }
+
+    public void enterEditSalary(String salary) {
+        salaryField.clear();
+        salaryField.sendKeys(salary);
+    }
+
+    public void enterEditDepartment(String department) {
+        departmentField.clear();
+        departmentField.sendKeys(department);
+    }
+
+
 }

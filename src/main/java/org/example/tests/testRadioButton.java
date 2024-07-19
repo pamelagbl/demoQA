@@ -39,30 +39,31 @@ public class testRadioButton {
 
         basePageRadioButton.yesRadio();
 
-        System.out.println("Radio Button seleccionado");
+        System.out.println("Radio Button 'Yes' seleccionado");
 
         basePageRadioButton.getMessage();
         WebElement messageOutput = driver.findElement(By.xpath("//span[@class='text-success']"));
         String messageActual1 = messageOutput.getText().replace("You have selected", "").trim();
         String messageReplace = messageActual1.substring(messageActual1.indexOf(":") + 1).trim();
         Assert.assertEquals(expectedMessage, messageReplace);
-        System.out.println("Aserción completada. La respuesta es la deseada");
+        System.out.println("Aserción completada. La respuesta obtenida es la deseada");
         System.out.println("Actual: " + expectedMessage + ", Expected: " + messageReplace);
     }
-@Test
+
+    @Test
     public void selectRadioButtonImpressive() {
         String expectedMessage = "Yes";
 
         basePageRadioButton.impressiveRadio();
 
-        System.out.println("Radio Button seleccionado");
+        System.out.println("Radio Button 'Impressive' seleccionado");
 
         basePageRadioButton.getMessage();
         WebElement messageOutput = driver.findElement(By.xpath("//span[@class='text-success']"));
         String messageActual1 = messageOutput.getText().replace("You have selected", "").trim();
         String messageReplace = messageActual1.substring(messageActual1.indexOf(":") + 1).trim();
         Assert.assertEquals(expectedMessage, messageReplace);
-        System.out.println("Aserción completada. La respuesta es la deseada");
+        System.out.println("La respuesta no es la esperada");
         System.out.println("Actual: " + expectedMessage + ", Expected: " + messageReplace);
     }
 
